@@ -1,0 +1,56 @@
+dataset_name: cataract
+train_split: [ 'training' ]
+val_split: [ 'testing' ]
+dataset: {
+  json_file: /home/pangy/disk/LUO/test_only/TriDet/data/cataract/data_1102.json,
+  feat_folder: /home/pangy/disk/LUO/test_only/TriDet/data/cataract/,
+  file_ext: _32.npy,
+  num_classes: 19,
+  input_dim: 2304,
+  feat_stride: 1,
+  downsample_rate: 30, #related 
+  num_frames: 32,
+  default_fps: 30,
+  trunc_thresh: 0.5,
+  crop_ratio: [ 0.9, 1.0 ],
+  max_seq_len: 1024, #max_seq_len*max_buffer%64==0
+  backbone_type: 'slowfast'
+}
+model: {
+  fpn_type: identity,
+  max_buffer_len_factor: 3.0,
+  backbone_arch: [ 2, 2, 2 ],
+  n_sgp_win_size: 1,
+  regression_range:  [ [ 0, 16 ], [ 16, 64 ], [ 64, 400 ] ],
+  num_bins: 19,
+  k: 5,
+  iou_weight_power: 0.2,
+  use_trident_head: True,
+  sgp_mlp_dim: 768,
+  input_noise: 0.01
+}
+opt: {
+  learning_rate: 0.001,
+  warmup_epochs: 10,
+  epochs: 40,
+  weight_decay: 0,
+}
+loader: {
+  batch_size: 2,
+}
+train_cfg: {
+  init_loss_norm: 100,
+  clip_grad_l2norm: 1.0,
+  cls_prior_prob: 0.01,
+  center_sample: none,
+  center_sample_radius: 1.5,
+}
+
+test_cfg: {
+  voting_thresh: 0.7,
+  pre_nms_topk: 1000,
+  max_seg_num: 500,
+  min_score: 0.0001,
+  multiclass_nms: True,
+}
+output_folder: ./ckpt/

@@ -1,0 +1,7 @@
+pip install 'git+https://github.com/facebookresearch/fvcore'
+pip install simplejson av psutil opencv-python tensorboard moviepy cython
+python -m pip install 'git+https://github.com/facebookresearch/detectron2.git'
+git clone https://github.com/facebookresearch/slowfast
+export PYTHONPATH=/path/to/slowfast:$PYTHONPATH
+cd slowfast
+python setup.py build develop
