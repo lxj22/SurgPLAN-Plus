@@ -2,7 +2,7 @@
 
 ## Dataset Generation
 
-You need to create dataset as follows: 
+You need to create dataset in data/your_dataset_name as follows: 
 ```
 {
     "train01.mp4": [
