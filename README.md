@@ -12,7 +12,7 @@ You need to create dataset in data/your_dataset_name as follows:
             "label": 2,
             "duration": 15.999999999999998,
             "subset": "training",
-            "time_till_now": 17.799999999999997
+            "time_till_now": 16.4
         },
         {
             "start": 31.466666666666665,
@@ -20,11 +20,11 @@ You need to create dataset in data/your_dataset_name as follows:
             "label": 3,
             "duration": 4.900000000000002,
             "subset": "training",
-            "time_till_now": 66.83333333333333
+            "time_till_now": 35.36666666666667
         },
 ......
 ```
-A dictionary contains video name as key, value is a list contains each phase segmentation. Inside one segmentation, there is a start time, end time, phase label, duration, subset(training or testing), time_till_now(start time plus end time).
+A dictionary contains video name as key, value is a list contains each phase segmentation. Inside one segmentation, there is a start time, end time, phase label, duration, subset(training or testing), time_till_now(equals end time).
 
 ## Feature Extractor
 we finetune the SlowFast as our feature extractor.
@@ -49,5 +49,12 @@ Also modify ```OUTPUT_DIR``` to your output feature folder.
 1. before run training. Modify the config file in ```SurgPLAN-Plus/configs/cataract_slowfast.yaml```
    change ```json_file``` to your dataset json file,
    change ```feat_folder``` tp your feature folder as extracted in Feature Extractor section
+   change ```num_classes``` to your phase classes plus one(idle phase).
 
+2. Run ```python train.py --cfg cataract_slowfast.yaml``` to train backbone.
+
+
+## Online inference
+
+1. run ```online_surgplan_inference.py```
 
