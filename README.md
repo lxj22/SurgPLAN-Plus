@@ -1,3 +1,7 @@
 # SurgPLAN++
 
-This is the code for SurgPLAN++.
+## Dataset Generation
+
+## Feature Extractor
+we finetune the SlowFast as our feature extractor.
+
