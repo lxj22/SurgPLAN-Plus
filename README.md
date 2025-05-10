@@ -56,5 +56,20 @@ Also modify ```OUTPUT_DIR``` to your output feature folder.
 
 ## Online inference
 
-1. run ```online_surgplan_inference.py```
+1. Prepare your ground truth csv file before you runing your inference.
+
+2. modify the argments in ```online_surgplan_inference.py```.
+
+   Line 594 ```vid_path = "path to video"```
+   
+   Line 598 ```tridet_cfg = load_tridet_config("your config path")```
+   
+   Libe 613 ```extract_checkpoint = torch.load("your finetuned slowfast model path",map_location=device)```
+   
+   Line 630 ```gt = pd.read_csv("ground truth file csv path")```
+   
+   Line 631 ```dir_name = "your inference video directory"```
+   
+
+5. run ```online_surgplan_inference.py```
 
