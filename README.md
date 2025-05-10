@@ -2,6 +2,30 @@
 
 ## Dataset Generation
 
+You need to create dataset as follows: 
+```
+{
+    "train01.mp4": [
+        {
+            "start": 1.4,
+            "end": 16.4,
+            "label": 2,
+            "duration": 15.999999999999998,
+            "subset": "training",
+            "time_till_now": 17.799999999999997
+        },
+        {
+            "start": 31.466666666666665,
+            "end": 35.36666666666667,
+            "label": 3,
+            "duration": 4.900000000000002,
+            "subset": "training",
+            "time_till_now": 66.83333333333333
+        },
+......
+```
+A dictionary contains video name as key, value is a list contains each phase segmentation. Inside one segmentation, there is a start time, end time, phase label, duration, subset(training or testing), time_till_now(start time plus end time).
+
 ## Feature Extractor
 we finetune the SlowFast as our feature extractor.
 
