@@ -74,3 +74,12 @@ Also modify ```OUTPUT_DIR``` to your output feature folder.
 
 5. run ```online_surgplan_inference.py```
 
+## Acknowledgements
+
+This work is built based on the following works:
+
+[Tridet](https://github.com/dingfengshi/TriDet/tree/master)
+[SlowFast](https://github.com/facebookresearch/SlowFast)
+
+
+
