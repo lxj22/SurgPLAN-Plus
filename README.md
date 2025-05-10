@@ -56,7 +56,7 @@ Also modify ```OUTPUT_DIR``` to your output feature folder.
 
 ## Online inference
 
-1. Prepare your ground truth csv file before you runing your inference. See example df_gt.csv. The csv contains two columns, video_id and gt_labels, video id is the video file name, gt_labels is the ground truth label.
+1. Prepare your ground truth csv file before you runing your inference. See example ```df_gt.csv```. The csv contains two columns, video_id and gt_labels, video id is the video file name, gt_labels is the ground truth label.
 
 
 2. modify the argments in ```online_surgplan_inference.py```.
